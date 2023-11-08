@@ -1,0 +1,130 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.course-title {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 34px;
+  color: #000;
+  margin: 50px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+/* 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: url('assets/img/bg.png');
+} */
+
+ul {
+  list-style: none;
+}
+
+.image-gallery{
+ max-width: 320px;
+ margin: 10px auto;
+}
+.image-gallery img{
+ width: 100%;
+ height: auto;
+ display: block;
+ border: 4px solid #ededed;
+ box-shadow: 0 2px 25px rgba(0,0,0,0.2);
+}
+ul.thumbnails{
+ /* margin: 0 auto; */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+ul.thumbnails li {
+ margin: 0 10px;
+}
+ul.thumbnails li a img{
+border: 4px solid #ededed;
+box-shadow: 0 2px 25px rgba(0,0,0,0.2);
+max-width: 120px;
+} 
+.social-container {
+        margin: 20px 0;
+display:flex;
+justify-content:center;
+    }
+.social-container a {
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin: 0 5px;
+        display: inline-flex;
+        justify-content: center;
+      text-decoration:none;
+        align-items: center;
+     
+    }
+.social-container a:hover{
+text-decoration:none;
+}
+.social-container a:hover i{
+font-size:20px;
+}
+.social-container a i{
+color:#3e3e3e;
+ transition:all 0.5s;
+}
+.contact-me{
+bottom: 20px;
+position: absolute;
+right: 50%;
+transform: translateX(50%);
+}
+.contact-me p{
+font-size:18px;
+color:#3e3e3e;
+text-align:center;
+}
