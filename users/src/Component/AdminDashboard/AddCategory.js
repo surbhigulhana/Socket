@@ -29,7 +29,7 @@ const AddProduct = () => {
     formData.append("filename", picture.bytes);
 
     try {
-      const response = await fetch("http://localhost:4003/api/Product", {
+      const response = await fetch("http://localhost:3305/api/Product", {
         method: "POST",
         mode: "cors",
         body: formData,
@@ -53,7 +53,7 @@ const AddProduct = () => {
 
       setname("");
       setPrice("");
-      fetch("http://localhost:4003/Product").then((result) => {
+      fetch("http://localhost:3305/Product").then((result) => {
         result.json().then((resp) => {
           setData(resp);
         });

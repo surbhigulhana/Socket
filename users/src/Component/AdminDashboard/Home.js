@@ -7,26 +7,43 @@ import "../css/sb-admin-2.min.css";
 import "../css/dataTables.bootstrap4.min.css";
 import { Table } from "react-bootstrap";
 import io from "socket.io-client"; // Import Socket.io client library
-
+const socket = io.connect("http://localhost:3305");
 const Home = () => {
   const [data, setData] = useState([]);
   
   useEffect(() => {
-    const socket = io("http://localhost:4003/"); // Replace with your Socket.io server URL
+   
 
     // Listen for updates from the server
     socket.on("productUpdate", (updatedData) => {
       console.log("Received product update:", updatedData);
-      setData(updatedData);
+
+      // Update the state with the new data
+      setData((prevData) => {
+        // Find the index of the updated product in the current data
+        const updatedIndex = prevData.findIndex((item) => item._id === updatedData._id);
+        console.log(updatedIndex)
+        // If the product is found, update it; otherwise, add it to the data
+        if (updatedIndex !== -1) {
+          return [
+            ...prevData.slice(0, updatedIndex),
+            updatedData,
+            ...prevData.slice(updatedIndex + 1),
+          ];
+        } else {
+          return [...prevData, updatedData];
+        }
+      });
     });
 
     // Fetch initial data
-    fetch("http://localhost:4003/Product").then((result) => {
+    fetch("http://localhost:3305/Product").then((result) => {
       result.json().then((resp) => {
         setData(resp);
       });
     });
-
+console.log(data)
+socket.emit();
     // Clean up the socket connection on unmount
     return () => {
       socket.disconnect();

@@ -13,7 +13,7 @@ const Product = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
-    fetch("http://localhost:4003/Product").then((result) => {
+    fetch("http://localhost:3305/Product").then((result) => {
       result.json().then((resp) => {
         setData(resp);
       });
@@ -23,12 +23,12 @@ const Product = () => {
   // ------delete -----
 
   async function deleteData(id) {
-    let result = await fetch(`http://localhost:4003/Product/${id}`, {
+    let result = await fetch(`http://localhost:3305/Product/${id}`, {
       method: "delete",
     });
     let data = await result.json();
 
-    fetch("http://localhost:4003/Product").then((result) => {
+    fetch("http://localhost:3305/Product").then((result) => {
       result.json().then((resp) => {
         setData(resp);
       });
@@ -71,7 +71,7 @@ async function editData() {
     formData.append("filename", picture.bytes);
   }
 
-  let result = await fetch(`http://localhost:4003/ProductImg/${id}`, {
+  let result = await fetch(`http://localhost:3305/ProductImg/${id}`, {
     method: "post",
     mode: "cors",
     body: formData,
@@ -80,7 +80,7 @@ async function editData() {
   let data = await result.json();
   console.log(data);
 
-  fetch("http://localhost:4003/Product").then((result) => {
+  fetch("http://localhost:3305/Product").then((result) => {
     result.json().then((resp) => {
       setData(resp);
     });
