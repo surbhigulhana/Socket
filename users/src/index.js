@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { SocketProvider } from './Component/Socket/SocketContext.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+<React.StrictMode>
+     <SocketProvider>
     <App />
+    </SocketProvider>
   </React.StrictMode>
 );
 
